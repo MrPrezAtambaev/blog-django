@@ -9,21 +9,21 @@ class BlogViewSet(viewsets.ModelViewSet):
     queryset = Blog.objects.all()
     serializer_class = BlogSerializer
 
-    @staticmethod
-    @api_view(['POST'])
-    def update_items(request, pk):
-        item = Blog.objects.get(pk=pk)
-        data = BlogSerializer(instance=item, data=request.data)
+    # @staticmethod
+    # @api_view(['POST'])
+    # def update_items(request, pk):
+    #     item = Blog.objects.get(pk=pk)
+    #     data = BlogSerializer(instance=item, data=request.data)
 
-        if data.is_valid():
-            data.save()
-            return Response(data.data)
-        else:
-            return Response(status=status.HTTP_404_NOT_FOUND)
+    #     if data.is_valid():
+    #         data.save()
+    #         return Response(data.data)
+    #     else:
+    #         return Response(status=status.HTTP_404_NOT_FOUND)
 
-    @staticmethod
-    @api_view(['Delete'])
-    def delete_items(request, pk):
-        item = Blog.objects.get(pk=pk)
-        item.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+    # @staticmethod
+    # @api_view(['Delete'])
+    # def delete_items(request, pk):
+    #     item = Blog.objects.get(pk=pk)
+    #     item.delete()
+    #     return Response(status=status.HTTP_204_NO_CONTENT)
